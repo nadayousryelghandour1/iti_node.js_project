@@ -19,6 +19,10 @@ server.use(express.json());
 server.use('/products',products);
 server.use('/users',user);
 
+server.use((req, res, next) => {
+    res.status(404).json({ message: "Not Found" });
+});
+
 server.listen(3002,()=>{
     console.log('Server is Running');
     
